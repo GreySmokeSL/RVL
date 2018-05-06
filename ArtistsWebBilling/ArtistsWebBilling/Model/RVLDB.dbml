@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="RVLDB" Class="RVLDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\RVLDB.mdf;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="RVLDBConnection" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Artist" Member="Artists">
+    <Type Name="Artist">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(512) NOT NULL" CanBeNull="false" />
+      <Association Name="Artist_Track" Member="Tracks" ThisKey="ID" OtherKey="ArtistID" Type="Track" />
+      <Association Name="Artist_Commission" Member="Commissions" ThisKey="ID" OtherKey="ArtistID" Type="Commission" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Track" Member="Tracks">
+    <Type Name="Track">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NChar(1024) NOT NULL" CanBeNull="false" />
+      <Column Name="Length" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ArtistID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Track_Playback" Member="Playbacks" ThisKey="ID" OtherKey="TrackID" Type="Playback" />
+      <Association Name="Artist_Track" Member="Artist" ThisKey="ArtistID" OtherKey="ID" Type="Artist" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Playback" Member="Playbacks">
+    <Type Name="Playback">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="StartTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ListenedLength" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TrackID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Track_Playback" Member="Track" ThisKey="TrackID" OtherKey="ID" Type="Track" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Commission" Member="Commissions">
+    <Type Name="Commission">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ArtistID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CommissionValue" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Association Name="Artist_Commission" Member="Artist" ThisKey="ArtistID" OtherKey="ID" Type="Artist" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

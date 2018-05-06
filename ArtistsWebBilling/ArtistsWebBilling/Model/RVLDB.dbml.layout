@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="RVLDB">
+  <DataContextMoniker Name="/RVLDBDataContext" />
+  <nestedChildShapes>
+    <classShape Id="36cdec5f-3ce1-431c-a41d-98c1628f51eb" absoluteBounds="0.5, 1.875, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/RVLDBDataContext/Artist" />
+      <nestedChildShapes>
+        <elementListCompartment Id="96091b12-d668-45bf-9ba3-9aefa3b799f8" absoluteBounds="0.515, 2.335, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="955b9723-edcb-4abe-b05a-f5b93d56f56d" absoluteBounds="3.25, 2.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/RVLDBDataContext/Track" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a4094e40-2e87-45b5-b3f9-53b7c638f977" absoluteBounds="3.265, 3.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="70adfcf7-1257-4dd0-bc31-c430922d299e" absoluteBounds="6, 2.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/RVLDBDataContext/Playback" />
+      <nestedChildShapes>
+        <elementListCompartment Id="14e1e8c6-0d37-4ca4-bb70-e996ab850e6e" absoluteBounds="6.015, 3.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.5 : 2.90949625651042); (3.25 : 2.90949625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/RVLDBDataContext/Artist/Artist_Track" />
+      <nodes>
+        <classShapeMoniker Id="36cdec5f-3ce1-431c-a41d-98c1628f51eb" />
+        <classShapeMoniker Id="955b9723-edcb-4abe-b05a-f5b93d56f56d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.25 : 3.53929768880208); (6 : 3.53929768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/RVLDBDataContext/Track/Track_Playback" />
+      <nodes>
+        <classShapeMoniker Id="955b9723-edcb-4abe-b05a-f5b93d56f56d" />
+        <classShapeMoniker Id="70adfcf7-1257-4dd0-bc31-c430922d299e" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="3390f389-3aeb-4d69-b766-15005a58282b" absoluteBounds="4.5, 0.625, 2, 1.3862939453125">
+      <DataClassMoniker Name="/RVLDBDataContext/Commission" />
+      <nestedChildShapes>
+        <elementListCompartment Id="50652b09-738c-437b-ba90-91b7dbb55292" absoluteBounds="4.515, 1.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.5 : 2.34939747265625); (5.625 : 2.34939747265625); (5.625 : 2.0112939453125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/RVLDBDataContext/Artist/Artist_Commission" />
+      <nodes>
+        <classShapeMoniker Id="36cdec5f-3ce1-431c-a41d-98c1628f51eb" />
+        <classShapeMoniker Id="3390f389-3aeb-4d69-b766-15005a58282b" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
